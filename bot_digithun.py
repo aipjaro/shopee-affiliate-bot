@@ -5,7 +5,7 @@ import random
 AFFILIATE_ID = "arip113377"
 
 def ambil_produk():
-    # Daftar produk contoh (nanti bisa kamu ganti/tambah sendiri)
+    # Daftar produk (bisa kamu tambah sendiri nanti)
     database = [
         {"nama": "Sepatu Sneakers Xtra", "url": "https://shope.ee"},
         {"nama": "Gamis Laku Keras", "url": "https://shope.ee"}
@@ -16,7 +16,7 @@ def posting_fb(pesan):
     token = os.getenv("FB_TOKEN")
     page_id = os.getenv("FB_PAGE_ID")
     
-    # Alamat API Facebook yang benar
+    # Ini alamat pintu masuk resmi untuk bot Facebook (Graph API)
     url = f"https://facebook.com{page_id}/feed"
     
     payload = {
@@ -29,7 +29,7 @@ def posting_fb(pesan):
 
 if __name__ == "__main__":
     p = ambil_produk()
-    # Format pesan otomatis
+    # Format pesan iklan
     pesan = f"🔥 PROMO XTRA! 🔥\n\n{p['nama']}\nCek di sini: {p['url']}?smtt=0.0.{AFFILIATE_ID}"
     
     print("Sedang mengirim postingan...")
