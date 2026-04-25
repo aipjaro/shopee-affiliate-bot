@@ -1,0 +1,17 @@
+name: Auto Post 24Jam
+on:
+  schedule:
+    - cron: '0 */2 * * *' # Jalan tiap 2 jam
+  workflow_dispatch:
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - setup-python:
+          python-version: '3.9'
+      - run: pip install -r requirements.txt
+      - env:
+          FB_TOKEN: ${{ secrets.FB_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+        run: python bot_digithun.py
