@@ -15,11 +15,23 @@ def ambil_produk():
 def posting_fb(pesan):
     token = os.getenv("FB_TOKEN")
     page_id = os.getenv("FB_PAGE_ID")
-url = f"https://facebook.com{page_id}/feed"
-    payload = {'message': pesan, 'access_token': token}
-    return requests.post(url, data=payload).json()
+    
+    # Menggunakan ://facebook.com agar bisa terhubung ke API Facebook
+    url = f"https://://facebook.com/{page_id}/feed"
+    
+    payload = {
+        'message': pesan,
+        'access_token': token
+    }
+    
+    response = requests.post(url, data=payload)
+    return response.json()
 
 if __name__ == "__main__":
     p = ambil_produk()
+    # Format pesan yang akan dikirim ke Facebook
     pesan = f"🔥 PROMO XTRA! 🔥\n\n{p['nama']}\nCek di sini: {p['url']}?smtt=0.0.{AFFILIATE_ID}"
-    print(posting_fb(pesan))
+    
+    print("Sedang mengirim postingan...")
+    hasil = posting_fb(pesan)
+    print(hasil)
