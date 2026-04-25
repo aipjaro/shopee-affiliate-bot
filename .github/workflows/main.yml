@@ -8,10 +8,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - setup-python:
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
           python-version: '3.9'
-      - run: pip install -r requirements.txt
-      - env:
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+      - name: Run Bot
+        env:
           FB_TOKEN: ${{ secrets.FB_TOKEN }}
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
         run: python bot_digithun.py
