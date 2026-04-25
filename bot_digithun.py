@@ -21,7 +21,7 @@ def posting_fb(pesan):
     page_id = os.getenv("FB_PAGE_ID")
     
     # URL API Facebook yang sudah diperbaiki (PENTING!)
-   ...url = f"https://graph.facebook.com/{page_id}/feed"
+      url = f"https://graph.facebook.com/{page_id}/feed"
 
 
 
