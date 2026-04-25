@@ -15,7 +15,7 @@ def ambil_produk():
 def posting_fb(pesan):
     token = os.getenv("FB_TOKEN")
     page_id = os.getenv("FB_PAGE_ID")
-    url = f"https://facebook.com{page_id}/feed"
+url = f"https://facebook.com{page_id}/feed"
     payload = {'message': pesan, 'access_token': token}
     return requests.post(url, data=payload).json()
 
