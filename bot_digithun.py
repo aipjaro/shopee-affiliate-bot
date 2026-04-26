@@ -13,8 +13,8 @@ def ambil_produk():
     return random.choice(database)
 
 def posting_fb(pesan):
-    token = os.getenv("FB_TOKEN")
-    page_id = os.getenv("FB_PAGE_ID")
+    token = "EAAYd1jAsTD4BRS5grbIzXuoFTJbZArWZCZAgfMjNpBvf1caAv6KQ8C3FLYCZAyZBqP1GZB4RkLsFpxpTLmOvzKoljDBFwwG5mVdkYkl6Wj1IilIM1pD7lFIBr3NpkSEJUkkASYZBjT0iLRHfVVi6yNuHXl3fANb0K6ZA6xDS0jZB1dT3v9zhHVOWMV4ZAGrJI0ZA9xBUphnxNA7ZCprpO0ObVV33uOVH5GVWjZAE0ABGZAIyQZD"
+    page_id = "1448154173176087"
     url = f"https://graph.facebook.com/{page_id}/feed"
     
     payload = {
